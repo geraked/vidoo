@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Vidoo",
+    "description": "Change the speed of medias, adjust video filters, automatically skip Ads, etc.",
+    "version": "1.0.0",
+    "homepage_url": "https://github.com/geraked/vidoo",
+    "icons": {
+        "128": "icons/vidoo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.aparat.com/*",
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "scripts/adskip.js"
+            ],
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "scripts/control.js"
+            ],
+            "css": [
+                "scripts/style.css"
+            ],
+            "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+        "icons/vidoo.png"
+    ]
+}
