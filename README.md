@@ -1,8 +1,6 @@
 # Vidoo
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/geraked/vidoo)
-
-Firefox & Chrome Browser Extension
+Browser Extension
 
 Change the speed of medias, adjust video filters, automatically skip Ads, etc.
 
@@ -25,6 +23,10 @@ Change the speed of medias, adjust video filters, automatically skip Ads, etc.
 -   Show Native Controls in Full-screen Mode
 -   Skip Ads Automatically
 -   Rotate
+
+## Release
+
+-   [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/geraked-vidoo/)
 
 ## Author
 

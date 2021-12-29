@@ -370,6 +370,19 @@
         let lg = media.tagName === 'VIDEO' ? 7.5 : 0;
         panel.style.top = (vo.top + tg) + 'px';
         panel.style.left = (vo.left + lg) + 'px';
+        if (media.tagName === 'AUDIO') {
+            if ((media.offsetParent === null || media.style.display === 'none' || !media.clientHeight || !media.clientWidth || !vo.left || !vo.top)) {
+                panel.style.setProperty('position', 'fixed', 'important');
+                panel.style.top = 'auto';
+                panel.style.bottom = 50 + 'px';
+                panel.style.left = 15 + 'px';
+                if (media.paused || media.ended || media.readyState < 3) {
+                    panel.style.setProperty('display', 'none', 'important');
+                } else {
+                    panel.style.setProperty('display', 'block', 'important');
+                }
+            }
+        }
     }
 
 
@@ -380,7 +393,7 @@
      * @returns {boolean}
      */
     function isHidden(el) {
-        return (el.offsetParent === null || el.style.display === 'none' || !el.clientHeight || !el.clientWidth || el.readyState < 3);
+        return (el.readyState < 3);
     }
 
 })();
