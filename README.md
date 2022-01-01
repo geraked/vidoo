@@ -27,6 +27,7 @@ Change the speed of medias, adjust video filters, automatically skip Ads, etc.
 ## Release
 
 -   [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/geraked-vidoo/)
+-   [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/keegmbkbbhmlainnebgolcgcggmbdijo)
 
 ## Author
 

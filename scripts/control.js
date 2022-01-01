@@ -351,8 +351,13 @@
     function offset(el) {
         let elRect = el.getBoundingClientRect();
         let offset = {};
-        offset.top = elRect.top + window.scrollY;
-        offset.left = elRect.left + window.scrollX;
+        if (document.fullscreenElement && document.fullscreenElement.contains(el)) {
+            offset.top = elRect.top;
+            offset.left = elRect.left;
+        } else {
+            offset.top = elRect.top + window.scrollY;
+            offset.left = elRect.left + window.scrollX;
+        }
         return offset;
     }
 
