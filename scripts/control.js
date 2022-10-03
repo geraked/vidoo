@@ -13,6 +13,7 @@
     const delay = 3000;
 
     let counter = 1;
+    let mdata = {};
     let checkInterval = setInterval(check, delay);
 
 
@@ -56,14 +57,16 @@
             let media = document.querySelector(`${ms}[vidoo-id="${id}"]`);
             if (!media) {
                 panel.remove();
+                if (id in mdata) delete mdata[id];
             } else {
                 setPanelPos(panel, media);
+                updateMedia(media, mdata[id]);
             }
         });
 
         document.querySelectorAll(ms).forEach(media => {
             if (media.hasAttribute('vidoo-id') || isHidden(media)) return;
-            let panel = createPanel(media);
+            let panel = createPanel(media, counter);
             panel.setAttribute('vidoo-id', counter);
             media.setAttribute('vidoo-id', counter);
             setPanelPos(panel, media);
@@ -77,9 +80,10 @@
      * Create control panel.
      * 
      * @param {Element} media 
+     * @param {number} cntid
      * @returns {Element}
      */
-    function createPanel(media) {
+    function createPanel(media, cntid) {
         let panel = document.createElement('div');
         let button = document.createElement('button');
         let dropdown = document.createElement('div');
@@ -89,6 +93,7 @@
         let isVideo = ms === 'video';
         let data = {};
         let defs;
+        mdata[cntid] = data;
 
         if (isVideo) {
             defs = {
@@ -117,6 +122,7 @@
             let val = e.target.checked ? -1 : 1;
             data[e.target.name] = val;
             media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
+            updateMedia(media, data);
         }
 
         resetData(data, defs);
@@ -149,14 +155,7 @@
                     input.value = data[key];
                 }
             });
-            if (isVideo) {
-                media.style.filter = videoFilter(data);
-                media.removeAttribute('vidoo-rotated');
-                media.style.transform = `scale(1,1) rotate(0deg)`;
-                if (data.controls) media.setAttribute('controls', '');
-                else media.removeAttribute('controls');
-            }
-            media.playbackRate = data.speed;
+            updateMedia(media, data);
         });
         dpc.appendChild(reset);
 
@@ -191,6 +190,7 @@
                 if (data.controls) media.setAttribute('controls', '');
                 else media.removeAttribute('controls');
                 if (data.controls) media.requestFullscreen();
+                updateMedia(media, data);
             }));
         }
 
@@ -408,6 +408,8 @@
             media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
             if (data.rotate) media.setAttribute('vidoo-rotated', '');
             else media.removeAttribute('vidoo-rotated');
+            if (data.controls) media.setAttribute('controls', '');
+            else media.removeAttribute('controls');
         }
         media.playbackRate = data.speed;
     }
