@@ -10,7 +10,7 @@
 
     // Constants
     const iconUrl = chrome.runtime.getURL('icons/vidoo.png');
-    const delay = 5000;
+    const delay = 3000;
 
     let counter = 1;
     let checkInterval = setInterval(check, delay);
@@ -231,13 +231,7 @@
             data[key] = val;
             range.value = val;
             number.value = val;
-            if (media.tagName === 'VIDEO') {
-                media.style.filter = videoFilter(data);
-                media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
-                if (data.rotate) media.setAttribute('vidoo-rotated', '');
-                else media.removeAttribute('vidoo-rotated');
-            }
-            media.playbackRate = data.speed;
+            updateMedia(media, data);
         }
 
 
@@ -399,6 +393,23 @@
      */
     function isHidden(el) {
         return (el.readyState < 3);
+    }
+
+
+    /**
+     * Set media attributes.
+     * 
+     * @param {Element} media
+     * @param {object} data
+     */
+    function updateMedia(media, data) {
+        if (media.tagName === 'VIDEO') {
+            media.style.filter = videoFilter(data);
+            media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
+            if (data.rotate) media.setAttribute('vidoo-rotated', '');
+            else media.removeAttribute('vidoo-rotated');
+        }
+        media.playbackRate = data.speed;
     }
 
 })();
