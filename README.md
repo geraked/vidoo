@@ -22,6 +22,7 @@ Change the speed of medias, adjust video filters, automatically skip Ads, etc.
 -   Flip Horizontal or Vertical
 -   Show Native Controls in Full-screen Mode
 -   Skip Ads Automatically
+-   Zoom In/Out Using Scale Parameter
 -   Rotate
 
 ## Release

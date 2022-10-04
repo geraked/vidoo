@@ -23,12 +23,12 @@
         let video = parent.querySelector('video');
         let panel = parent.querySelector('.vidoo-panel-video');
         if (!video || !video.hasAttribute('vidoo-id')) return;
+        let id = video.getAttribute('vidoo-id');
         if (panel) {
             if (!document.fullscreenElement) document.body.appendChild(panel);
             setPanelPos(panel, video);
             return;
         }
-        let id = video.getAttribute('vidoo-id');
         panel = document.querySelector(`.vidoo-panel-video[vidoo-id="${id}"]`);
         if (panel) {
             setPanelPos(panel, video);
@@ -110,6 +110,7 @@
                 rotate: 0,
                 fh: 1,
                 fv: 1,
+                scale: 1,
                 controls: media.hasAttribute('controls'),
             };
         } else {
@@ -121,7 +122,7 @@
         let flipChange = e => {
             let val = e.target.checked ? -1 : 1;
             data[e.target.name] = val;
-            media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
+            media.style.transform = `scale(${data.fh * data.scale}, ${data.fv * data.scale}) rotate(${data.rotate}deg)`;
             updateMedia(media, data);
         }
 
@@ -173,6 +174,7 @@
             dpc.appendChild(createField(0, 50, 1, 'blur', data, media));
             dpc.appendChild(createField(0, 360, 1, 'hue-rotate', data, media));
             dpc.appendChild(createField(0, 360, 1, 'rotate', data, media));
+            dpc.appendChild(createField(0.3, 4, 0.1, 'scale', data, media));
         }
 
 
@@ -281,7 +283,7 @@
     function videoFilter(data) {
         let filter = '';
         for (let k in data) {
-            if (k === 'speed' || k === 'rotate' || k === 'fh' || k === 'fv' || k === 'controls') continue;
+            if (k === 'speed' || k === 'rotate' || k === 'fh' || k === 'fv' || k === 'scale' || k === 'controls') continue;
             let unit;
             switch (k) {
                 case 'blur':
@@ -345,6 +347,9 @@
     function offset(el) {
         let elRect = el.getBoundingClientRect();
         let offset = {};
+        if (el.hasAttribute('vidoo-transformed') && el.offsetParent) {
+            elRect = el.offsetParent.getBoundingClientRect();
+        }
         if (document.fullscreenElement && document.fullscreenElement.contains(el)) {
             offset.top = elRect.top;
             offset.left = elRect.left;
@@ -363,7 +368,6 @@
      * @param {Element} media 
      */
     function setPanelPos(panel, media) {
-        if (media.hasAttribute('vidoo-rotated')) return;
         let vo = offset(media);
         let tg = media.tagName === 'VIDEO' ? 7.5 : -39.5;
         let lg = media.tagName === 'VIDEO' ? 7.5 : 0;
@@ -405,9 +409,9 @@
     function updateMedia(media, data) {
         if (media.tagName === 'VIDEO') {
             media.style.filter = videoFilter(data);
-            media.style.transform = `scale(${data.fh}, ${data.fv}) rotate(${data.rotate}deg)`;
-            if (data.rotate) media.setAttribute('vidoo-rotated', '');
-            else media.removeAttribute('vidoo-rotated');
+            media.style.transform = `scale(${data.fh * data.scale}, ${data.fv * data.scale}) rotate(${data.rotate}deg)`;
+            if (data.rotate || data.scale != 1) media.setAttribute('vidoo-transformed', '');
+            else media.removeAttribute('vidoo-transformed');
             if (data.controls) media.setAttribute('controls', '');
             else media.removeAttribute('controls');
         }
