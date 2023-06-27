@@ -12,7 +12,7 @@
     const url = new URL(window.location.href);
     const hostname = url.hostname.toLowerCase();
     const delay = 1000;
-    const vidend = 15;
+    const vidend = 6;
 
 
     // Detect the site from the URL hostname and call its appropriate function
@@ -49,7 +49,7 @@
             if (document.hidden) return;
             let es = document.querySelectorAll('.video-ads');
             if (es.length > 0) {
-                document.querySelectorAll('.ad-showing video').forEach(v => {
+                document.querySelectorAll('.ad-showing:not(.buffering-mode) video').forEach(v => {
                     if (v.currentTime < vidend)
                         v.currentTime = vidend;
                 });
