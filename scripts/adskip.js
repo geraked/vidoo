@@ -49,7 +49,7 @@
             if (document.hidden) return;
             let es = document.querySelectorAll('.video-ads');
             if (es.length > 0) {
-                document.querySelectorAll('.ad-showing:not(.buffering-mode) video').forEach(v => {
+                document.querySelectorAll('.ad-showing.playing-mode:not(.buffering-mode):not(.unstarted-mode) video').forEach(v => {
                     if (v.currentTime < vidend)
                         v.currentTime = vidend;
                 });
