@@ -28,9 +28,9 @@
      */
     function aparat() {
         setInterval(() => {
-            let es = document.querySelectorAll('.vast-skip-button, .ad-mode, .vast-ad');
+            let es = document.querySelectorAll('.vast-skip-button, .ad-mode, .vast-ad, .vast-skip-counter');
             if (es.length > 0) {
-                document.querySelectorAll('video.disable-controls').forEach(v => {
+                document.querySelectorAll('#videoPlayer video').forEach(v => {
                     v.currentTime = 600;
                 });
             }
@@ -54,7 +54,7 @@
                         v.currentTime = vidend;
                 });
             }
-            addHideStyle('.ytp-ad-overlay-image, .ytp-ad-overlay-ad-info-button-container, #action-companion-click-target, #offer-module, ytd-promoted-sparkles-web-renderer, tp-yt-paper-dialog, #masthead-ad');
+            addHideStyle('.ytp-ad-overlay-image, .ytp-ad-overlay-ad-info-button-container, #action-companion-click-target, #offer-module, #masthead-ad');
             es = document.querySelectorAll('.ytp-ad-skip-button, .ytp-ad-overlay-close-container');
             es.forEach(b => b.click());
         }, delay);
