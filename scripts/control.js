@@ -1,5 +1,5 @@
 /**
- * This script, adds control panel to videos and audios.
+ * This script adds control panel to videos and audios.
  */
 (() => {
 
