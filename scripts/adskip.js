@@ -1,11 +1,14 @@
 /**
  * This script automatically skips video Ads that appear while playing.
  */
-(() => {
+(async () => {
 
     // Prevent the script to load multiple times
     if (window.vidooASL) return;
     window.vidooASL = true;
+
+    // Check if Vidoo is On
+    if (!(await chrome.storage.local.get({ vidooIsOn: true })).vidooIsOn) return;
 
 
     // Constants

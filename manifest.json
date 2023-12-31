@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Vidoo",
     "description": "Change the speed of medias, adjust video filters, automatically skip Ads, etc.",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "homepage_url": "https://github.com/geraked/vidoo",
     "icons": {
         "128": "icons/vidoo.png"
@@ -40,5 +40,16 @@
                 "<all_urls>"
             ]
         }
+    ],
+    "action": {
+        "default_icon": "icons/vidoo.png",
+        "default_title": "Toggle ON/OFF"
+    },
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "permissions": [
+        "storage",
+        "notifications"
     ]
 }

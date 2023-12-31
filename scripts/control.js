@@ -1,11 +1,14 @@
 /**
  * This script adds control panel to videos and audios.
  */
-(() => {
+(async () => {
 
     // Prevent the script to load multiple times
     if (window.vidooCL) return;
     window.vidooCL = true;
+
+    // Check if Vidoo is On
+    if (!(await chrome.storage.local.get({ vidooIsOn: true })).vidooIsOn) return;
 
 
     // Constants
