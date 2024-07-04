@@ -1,151 +1,166 @@
 .vidoo-panel {
-    position: absolute !important;
-    z-index: 2147483647 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    direction: ltr !important;
+  position: absolute !important;
+  z-index: 2147483647 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  direction: ltr !important;
 }
 
 .vidoo-panel * {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    height: auto !important;
-    min-width: auto !important;
-    min-height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    display: block !important;
-    color: #000000 !important;
-    font-family: Tahoma, Geneva, Verdana, sans-serif !important;
-    direction: ltr !important;
-    text-align: left !important;
-    font-size: 12px !important;
-    line-height: 1 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: all !important;
-    appearance: auto !important;
-    -moz-appearance: auto !important;
-    -webkit-appearance: auto !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: block !important;
+  color: #000000 !important;
+  font-family: Tahoma, Geneva, Verdana, sans-serif !important;
+  direction: ltr !important;
+  text-align: left !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: all !important;
+  appearance: auto !important;
+  -moz-appearance: auto !important;
+  -webkit-appearance: auto !important;
 }
 
 .vidoo-panel button,
 .vidoo-panel a {
-    cursor: pointer !important;
-    text-align: center !important;
+  cursor: pointer !important;
+  text-align: center !important;
 }
 
 .vidoo-button {
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 50% !important;
-    background: #ffffff !important;
-    line-height: 1 !important;
-    border: none !important;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-    padding: 0 !important;
-    margin: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  line-height: 1 !important;
+  border: none !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .vidoo-button:hover {
-    background: #e0e0e0 !important;
+  background: #e0e0e0 !important;
 }
+
 .vidoo-button:focus {
-    outline: none !important;
+  outline: none !important;
 }
+
 .vidoo-button img {
-    width: 16px !important;
-    height: 16px !important;
-    margin: 0 !important;
-    display: inline-block !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  display: inline-block !important;
 }
 
 .vidoo-dropdown {
-    width: 250px !important;
-    background: #ffffff !important;
-    display: none !important;
-    padding: 7.5px !important;
-    border-radius: 7.5px !important;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-    overflow-x: hidden !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 39.5px !important;
+  width: 250px !important;
+  background: #ffffff !important;
+  display: none !important;
+  padding: 7.5px !important;
+  border-radius: 7.5px !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  overflow-x: hidden !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 39.5px !important;
 }
+
 .vidoo-panel-audio .vidoo-dropdown {
-    top: auto !important;
-    bottom: 0 !important;
+  top: auto !important;
+  bottom: 0 !important;
 }
+
 .vidoo-dropdown.vidoo-dropdown-show {
-    display: block !important;
+  display: block !important;
 }
+
 .vidoo-dropdown button,
 .vidoo-dropdown a {
-    padding: 7.5px !important;
-    color: #fff !important;
-    background: #03a9f4 !important;
-    border-radius: 7.5px !important;
-    margin-bottom: 7.5px !important;
+  padding: 7.5px !important;
+  color: #fff !important;
+  background: #03a9f4 !important;
+  border-radius: 7.5px !important;
+  margin-bottom: 7.5px !important;
 }
+
 .vidoo-dropdown button:hover,
 .vidoo-dropdown a:hover {
-    background: #039be5 !important;
+  background: #039be5 !important;
 }
+
 .vidoo-dpc {
-    scrollbar-width: thin !important;
-    scrollbar-color: #c1c1c1 #f1f1f1 !important;
-    overflow-y: auto !important;
-    padding-right: 7.5px !important;
-    max-height: 220px !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #c1c1c1 #f1f1f1 !important;
+  overflow-y: auto !important;
+  padding-right: 7.5px !important;
+  max-height: 220px !important;
 }
+
 .vidoo-dpc::-webkit-scrollbar {
-    width: 7px !important;
+  width: 7px !important;
 }
+
 .vidoo-dpc::-webkit-scrollbar-track {
-    background: #f1f1f1 !important;
+  background: #f1f1f1 !important;
 }
+
 .vidoo-dpc::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1 !important;
-    border-radius: 0 !important;
-    border: 0px solid #f1f1f1 !important;
+  background-color: #c1c1c1 !important;
+  border-radius: 0 !important;
+  border: 0px solid #f1f1f1 !important;
 }
 
 .vidoo-field {
-    display: grid !important;
-    grid-column-gap: 7.5px !important;
-    grid-template-areas:
-        "l l l l"
-        "r r r n";
+  display: grid !important;
+  grid-column-gap: 7.5px !important;
+  grid-template-areas:
+    "l l l l"
+    "r r r n";
 }
+
 .vidoo-label {
-    grid-area: l;
-    text-transform: capitalize !important;
-    font-weight: bold !important;
+  grid-area: l;
+  text-transform: capitalize !important;
+  font-weight: bold !important;
 }
+
 .vidoo-number {
-    grid-area: n;
-    border: 1px solid #e0e0e0 !important;
-    border-radius: 7.5px !important;
-    padding: 6px !important;
+  grid-area: n;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 7.5px !important;
+  padding: 6px !important;
 }
+
 .vidoo-range {
-    grid-area: r;
+  grid-area: r;
 }
 
 .vidoo-checkbox {
-    margin-top: 15px !important;
+  margin-top: 15px !important;
 }
+
 .vidoo-panel input[type="checkbox"] {
-    width: auto !important;
-    display: inline !important;
-    margin-right: 7.5px !important;
+  width: auto !important;
+  display: inline !important;
+  margin-right: 7.5px !important;
 }
+
 .vidoo-checkbox label {
-    width: auto !important;
-    display: inline !important;
-    font-weight: bold !important;
+  width: auto !important;
+  display: inline !important;
+  font-weight: bold !important;
 }

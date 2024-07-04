@@ -1,54 +1,59 @@
 {
-    "manifest_version": 3,
-    "name": "Vidoo",
-    "description": "Change the speed of medias, adjust video filters, automatically skip Ads, etc.",
-    "version": "1.1.1",
-    "homepage_url": "https://github.com/geraked/vidoo",
-    "icons": {
-        "128": "icons/vidoo.png"
+  "manifest_version": 3,
+  "name": "Vidoo",
+  "description": "Change the speed of medias, adjust video filters, automatically skip Ads, etc.",
+  "version": "1.1.2",
+  "homepage_url": "https://github.com/geraked/vidoo",
+  "icons": {
+    "128": "icons/vidoo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.aparat.com/*",
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "scripts/adskip.js"
+      ],
+      "all_frames": true
     },
-    "content_scripts": [
-        {
-            "matches": [
-                "*://*.aparat.com/*",
-                "*://*.youtube.com/*"
-            ],
-            "js": [
-                "scripts/adskip.js"
-            ],
-            "all_frames": true
-        },
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "scripts/control.js"
-            ],
-            "css": [
-                "scripts/style.css"
-            ],
-            "all_frames": true
-        }
-    ],
-    "web_accessible_resources": [
-        {
-            "resources": [
-                "icons/vidoo.png"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
-        }
-    ],
-    "action": {
-        "default_icon": "icons/vidoo.png",
-        "default_title": "Toggle ON/OFF"
-    },
-    "background": {
-        "service_worker": "scripts/background.js"
-    },
-    "permissions": [
-        "storage"
-    ]
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/control.js"
+      ],
+      "css": [
+        "scripts/style.css"
+      ],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/vidoo.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_icon": "icons/vidoo.png",
+    "default_title": "Toggle ON/OFF"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
 }
