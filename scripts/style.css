@@ -28,6 +28,8 @@
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: all !important;
+  padding-block: 0 !important;
+  padding-inline: 0 !important;
   appearance: auto !important;
   -moz-appearance: auto !important;
   -webkit-appearance: auto !important;
@@ -125,6 +127,7 @@
 }
 
 .vidoo-field {
+  margin: 15px 0 !important;
   display: grid !important;
   grid-column-gap: 7.5px !important;
   grid-template-areas:
@@ -136,6 +139,10 @@
   grid-area: l;
   text-transform: capitalize !important;
   font-weight: bold !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
 }
 
 .vidoo-number {
@@ -150,7 +157,7 @@
 }
 
 .vidoo-checkbox {
-  margin-top: 15px !important;
+  margin: 20px 0 !important;
 }
 
 .vidoo-panel input[type="checkbox"] {
@@ -163,4 +170,7 @@
   width: auto !important;
   display: inline !important;
   font-weight: bold !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
 }

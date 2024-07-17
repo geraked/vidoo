@@ -38,7 +38,7 @@
             v.currentTime = vidend;
         });
       }
-      addHideStyle('.aparat-pause-ad, .aparat-pause-ad-xml, #sideAds, .aparat-slide-ad, .under-video-ad');
+      addHideStyle('.aparat-pause-ad, .aparat-pause-ad-xml, #sideAds, .aparat-slide-ad, .under-video-ad, #underVideoSync');
       es = document.querySelectorAll('.vast-skip-button');
       es.forEach(b => b.click());
     }, delay);
